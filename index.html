@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Collaboration App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="topSection">
+    <div>
+
+    </div>
+    <div>
+        <h1 id="mainTitle">Team Collaboration App</h1>
+    </div>
+    <div class="container">
+        <div class="date-container">
+            <p class="date-text" id="current-date"></p>
+        </div>
+        <div class="button-container">
+            <button onclick="adjustDate(-1)">← Den zpět</button>
+            <button onclick="adjustDate(1)">Den vpřed →</button>
+        </div>
+        </div>
+</div>
+
+
+
+
+<div id="mainTab">
+
+
+<!-- Team Member Section -->
+<section id="team-section">
+    <h2>Team Members</h2>
+    <form id="add-member-form">
+        <input type="text" id="member-name" placeholder="Member Name" required>
+        <select id="member-role">
+            <option value="Member">Member</option>
+            <option value="Team Leader">Team Leader</option>
+
+        </select>
+        <button type="submit">Add Member</button>
+    </form>
+    <ul id="team-list"></ul>
+</section>
+
+<!-- Task Section -->
+<section id="task-section">
+    <h2>Tasks</h2>
+    <form id="add-task-form">
+        <input type="text" id="task-title" placeholder="Task Title" required>
+        <input type="text" id="task-desc" placeholder="Task Description">
+        <input type="date" id="task-due-date" placeholder="Due Date" required>
+        <select id="task-members" multiple>
+            <!-- Team members will populate here -->
+        </select>
+        <button type="submit">Add Task</button>
+    </form>
+    <ul id="task-list"></ul>
+
+</section>
+
+<section><h1>Completed Tasks</h1>
+    <ul id="completed-task-list"></ul></section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
