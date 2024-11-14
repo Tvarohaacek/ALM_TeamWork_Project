@@ -22,7 +22,7 @@ body {
     padding-top: 2%;
 }
 
-#task-section {
+#task-section, #team-list, #topSection, #completed-task-list li {
     border-bottom: lightgray solid 1px;
 }
 
@@ -72,7 +72,7 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: cornflowerblue;
     color: white;
     border: none;
     border-radius: 5px;
@@ -80,9 +80,16 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: deepskyblue;
 }
 
+.overdue {
+    border-left: 3px solid red;
+    background-color: #fff0f0;
+}
+.overdue p, .overdue strong {
+    margin-left: 10px;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -117,5 +124,9 @@ button.complete-btn {
     border: none;
     cursor: pointer;
     margin-top: 5px;
+}
+
+#completed-task-list p {
+    margin: 3px;
 }
 
