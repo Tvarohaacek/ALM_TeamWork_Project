@@ -262,10 +262,10 @@ class TeamApp {
         const selectedCheckboxes = this.memberCheckboxesContainer.querySelectorAll('input[type="checkbox"]:checked');
         const selectedMembers = Array.from(selectedCheckboxes).map(checkbox => parseFloat(checkbox.value));
 
-        if (selectedMembers.length === 0) {
-            alert('Please select at least one team member.');
-            return;
-        }
+        // if (selectedMembers.length === 0) {
+        //     alert('Please select at least one team member.');
+        //     return;
+        // }
 
         selectedMembers.forEach(memberId => {
             const member = this.teamMembers.find(m => m.id === memberId);
@@ -282,6 +282,7 @@ class TeamApp {
         // Update the team list to show new message counts
         this.renderTeam();
     }
+
 
 
     sendMessage() {
@@ -302,7 +303,7 @@ class TeamApp {
         // Pro každý zaškrtnutý checkbox najít odpovídajícího člena a uložit zprávu
         selectedCheckboxes.forEach(checkbox => {
             const memberId = parseFloat(checkbox.value);
-            const member = this.teamMembers.find(m => m.id === memberId);
+            const member = app.teamMembers.find(m => m.id === memberId);
 
             if (member) {
                 // Uložení zprávy do pole člena
@@ -320,7 +321,7 @@ class TeamApp {
         selectedCheckboxes.forEach(checkbox => checkbox.checked = false);
 
         // Aktualizovat zobrazení týmu, aby se projevily nové zprávy
-        this.renderTeam();
+        app.renderTeam();
     }
 
     updateDateDisplay() {
@@ -339,8 +340,13 @@ class TeamApp {
         this.updateDateDisplay();
         this.renderTasks();
     }
+
+
 }
 
 // Initialize the app and expose the date adjustment function globally
 const app = new TeamApp();
 window.adjustDate = (days) => app.adjustDate(days);
+
+let sendMessageButton = document.getElementById('send-message-button');
+sendMessageButton.onclick = app.sendMessage;
