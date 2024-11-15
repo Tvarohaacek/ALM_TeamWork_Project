@@ -23,7 +23,7 @@
             <button onclick="adjustDate(-1)">← Den zpět</button>
             <button onclick="adjustDate(1)">Den vpřed →</button>
         </div>
-        </div>
+    </div>
 </div>
 
 
@@ -32,38 +32,47 @@
 <div id="mainTab">
 
 
-<section id="team-section">
-    <h2>Team Members</h2>
-    <form id="add-member-form">
-        <input type="text" id="member-name" placeholder="Member Name" required>
-        <select id="member-role">
-            <option value="Member">Member</option>
-            <option value="Team Leader">Team Leader</option>
+    <!-- Team Member Section -->
+    <section id="team-section">
+        <h2>Team Members</h2>
+        <form id="add-member-form">
+            <input type="text" id="member-name" placeholder="Member Name" required>
+            <select id="member-role">
+                <option value="Member">Member</option>
+                <option value="Team Leader">Team Leader</option>
 
-        </select>
-        <button type="submit">Add Member</button>
-    </form>
-    <ul id="team-list"></ul>
-</section>
+            </select>
+            <button type="submit">Add Member</button>
+        </form>
+        <ul id="team-list"></ul>
+        <div class="MessageSlot">
+            <form id="send-message">
+                <input type="text" id="message_text" placeholder="Enter message" required>
+                <div id="member-checkboxes"></div>
+                <button id="send-message-button" type="button" onclick="sendMessage()">Send Message</button>
+            </form>
+        </div>
 
-<!-- Task Section -->
-<section id="task-section">
-    <h2>Tasks</h2>
-    <form id="add-task-form">
-        <input type="text" id="task-title" placeholder="Task Title" required>
-        <input type="text" id="task-desc" placeholder="Task Description">
-        <input type="date" id="task-due-date" placeholder="Due Date" required>
-        <select id="task-members" multiple>
-            <!-- Team members will populate here -->
-        </select>
-        <button type="submit">Add Task</button>
-    </form>
-    <ul id="task-list"></ul>
+    </section>
 
-</section>
+    <!-- Task Section -->
+    <section id="task-section">
+        <h2>Tasks</h2>
+        <form id="add-task-form">
+            <input type="text" id="task-title" placeholder="Task Title" required>
+            <input type="text" id="task-desc" placeholder="Task Description">
+            <input type="date" id="task-due-date" placeholder="Due Date" required>
+            <select id="task-members" multiple>
+                <!-- Team members will populate here -->
+            </select>
+            <button type="submit">Add Task</button>
+        </form>
+        <ul id="task-list"></ul>
 
-<section><h1>Completed Tasks</h1>
-    <ul id="completed-task-list"></ul></section>
+    </section>
+
+    <section><h1>Completed Tasks</h1>
+        <ul id="completed-task-list"></ul></section>
 </div>
 
 <script src="script.js"></script>
