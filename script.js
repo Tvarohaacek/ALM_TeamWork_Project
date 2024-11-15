@@ -63,9 +63,21 @@ class TeamApp {
         this.memberCheckboxesContainer = document.getElementById('member-checkboxes');
 
         this.initializeEventListeners();
+        this.addDefaultMember();
         this.updateDateDisplay();
         this.renderTeam();
         this.renderTasks();
+
+    }
+
+
+
+    addDefaultMember() {
+        const defaultMember = new Member("Me", "Administrator");
+        this.teamMembers.push(defaultMember);
+        this.renderTeam(); // Render team list to include the new member
+        this.populateMemberOptions(); // Update options in task assignment dropdown
+        this.renderMemberCheckboxes(); // Update checkboxes in the message section
     }
 
     initializeEventListeners() {
@@ -91,6 +103,7 @@ class TeamApp {
         this.renderMemberCheckboxes();
     }
 
+
     renderTeam() {
         this.teamList.innerHTML = '';
         this.teamMembers.forEach(member => {
@@ -108,6 +121,7 @@ class TeamApp {
             }
 
             this.teamList.appendChild(li);
+
         });
     }
 
@@ -350,3 +364,4 @@ window.adjustDate = (days) => app.adjustDate(days);
 
 let sendMessageButton = document.getElementById('send-message-button');
 sendMessageButton.onclick = app.sendMessage;
+
